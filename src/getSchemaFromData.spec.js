@@ -132,8 +132,11 @@ test('creates three query fields per data type', () => {
     expect(queries['Post'].type.name).toEqual(PostType.name);
     expect(queries['Post'].args).toEqual([
         {
+            astNode: undefined,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
         },
@@ -154,8 +157,11 @@ test('creates three query fields per data type', () => {
     expect(queries['User'].type.name).toEqual(UserType.name);
     expect(queries['User'].args).toEqual([
         {
+            astNode: undefined,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
         },
@@ -181,101 +187,143 @@ test('creates three mutation fields per data type', () => {
     expect(mutations['createPost'].type.name).toEqual(PostType.name);
     expect(mutations['createPost'].args).toEqual([
         {
+            astNode: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'title',
             type: new GraphQLNonNull(GraphQLString),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'views',
             type: new GraphQLNonNull(GraphQLInt),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'user_id',
             type: new GraphQLNonNull(GraphQLID),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
     ]);
     expect(mutations['updatePost'].type.name).toEqual(PostType.name);
     expect(mutations['updatePost'].args).toEqual([
         {
+            astNode: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'title',
             type: GraphQLString,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'views',
             type: GraphQLInt,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'user_id',
             type: GraphQLID,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
     ]);
     expect(mutations['removePost'].type.name).toEqual(GraphQLBoolean.name);
     expect(mutations['removePost'].args).toEqual([
         {
+            astNode: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
     ]);
     expect(mutations['createUser'].type.name).toEqual(UserType.name);
     expect(mutations['createUser'].args).toEqual([
         {
+            astNode: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'name',
             type: new GraphQLNonNull(GraphQLString),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
     ]);
     expect(mutations['updateUser'].type.name).toEqual(UserType.name);
     expect(mutations['updateUser'].args).toEqual([
         {
+            astNode: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
         {
+            astNode: undefined,
             name: 'name',
             type: GraphQLString,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
         },
     ]);
     expect(mutations['removeUser'].type.name).toEqual(GraphQLBoolean.name);
     expect(mutations['removeUser'].args).toEqual([
         {
+            astNode: undefined,
             defaultValue: undefined,
-            description: null,
+            deprecationReason: undefined,
+            description: undefined,
+            extensions: undefined,
             name: 'id',
             type: new GraphQLNonNull(GraphQLID),
         },
