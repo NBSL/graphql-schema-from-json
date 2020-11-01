@@ -8,6 +8,7 @@ import {
     GraphQLString,
 } from 'graphql';
 import GraphQLJSON from 'graphql-type-json';
+import { argsToArgsConfig } from 'graphql/type/definition';
 import DateType from './DateType';
 
 const isNumeric = value => !isNaN(parseFloat(value)) && isFinite(value);
@@ -29,8 +30,8 @@ const valuesAreObject = values => values.every(isObject);
 const requiredTypeOrNormal = (type, isRequired) =>
     isRequired ? new GraphQLNonNull(type) : type;
 
-export default (name, values = [], isRequired = false) => {
-    if (name === 'id' || name.substr(name.length - 3) === '_id') {
+export default (name, idArray = [], values = [], isRequired = false) => {
+    if (name === 'id' || name.substr(name.length - 3) === '_id' || idArray.includes(name)) {
         return requiredTypeOrNormal(GraphQLID, isRequired);
     }
     if (values.length > 0) {

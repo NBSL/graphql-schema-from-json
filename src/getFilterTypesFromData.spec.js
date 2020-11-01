@@ -49,7 +49,7 @@ const UsersType = new GraphQLObjectType({
 */
 
 test('creates one filter type per entity', () => {
-    const filterTypes = getFilterTypesFromData(data);
+    const filterTypes = getFilterTypesFromData(data, []);
     expect(Object.values(filterTypes).map(type => type.toString())).toEqual([
         'PostFilter',
         'UserFilter',
@@ -57,7 +57,7 @@ test('creates one filter type per entity', () => {
 });
 
 test('creates one filter field per entity field', () => {
-    const filterTypes = getFilterTypesFromData(data);
+    const filterTypes = getFilterTypesFromData(data, []);
     const PostFilterFields = filterTypes.Post.getFields();
     expect(PostFilterFields.id.type.toString()).toEqual('ID');
     expect(PostFilterFields.title.type.toString()).toEqual('String');
@@ -69,7 +69,7 @@ test('creates one filter field per entity field', () => {
 });
 
 test('creates one q field per entity field', () => {
-    const filterTypes = getFilterTypesFromData(data);
+    const filterTypes = getFilterTypesFromData(data, []);
     const PostFilterFields = filterTypes.Post.getFields();
     expect(PostFilterFields.q.type.toString()).toEqual('String');
     const CommentFilterFields = filterTypes.User.getFields();
@@ -77,7 +77,7 @@ test('creates one q field per entity field', () => {
 });
 
 test('creates 4 fields for number field for range filters', () => {
-    const filterTypes = getFilterTypesFromData(data);
+    const filterTypes = getFilterTypesFromData(data, []);
     const PostFilterFields = filterTypes.Post.getFields();
     expect(PostFilterFields.views_lt.type.toString()).toEqual('Int');
     expect(PostFilterFields.views_lte.type.toString()).toEqual('Int');
@@ -86,7 +86,7 @@ test('creates 4 fields for number field for range filters', () => {
 });
 
 test('does not create vomparison fiels for non-number fields', () => {
-    const filterTypes = getFilterTypesFromData(data);
+    const filterTypes = getFilterTypesFromData(data, []);
     const PostFilterFields = filterTypes.Post.getFields();
     expect(PostFilterFields.title_lte).toBeUndefined();
 });

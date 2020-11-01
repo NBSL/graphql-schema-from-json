@@ -9,11 +9,12 @@ import getValuesFromEntities from './getValuesFromEntities';
 import getTypeFromValues from './getTypeFromValues';
 import { getTypeFromKey } from './nameConverter';
 
-const getRangeFiltersFromEntities = entities => {
+const getRangeFiltersFromEntities = (entities, idArray) => {
     const fieldValues = getValuesFromEntities(entities);
     return Object.keys(fieldValues).reduce((fields, fieldName) => {
         const fieldType = getTypeFromValues(
             fieldName,
+            idArray,
             fieldValues[fieldName],
             false
         );
@@ -87,7 +88,7 @@ const getRangeFiltersFromEntities = entities => {
  * //     }),
  * // }
  */
-export default data =>
+export default (data, idArray) =>
     Object.keys(data).reduce(
         (types, key) =>
             Object.assign({}, types, {
@@ -97,8 +98,8 @@ export default data =>
                         {
                             q: { type: GraphQLString },
                         },
-                        getFieldsFromEntities(data[key], false),
-                        getRangeFiltersFromEntities(data[key])
+                        getFieldsFromEntities(data[key], idArray, false),
+                        getRangeFiltersFromEntities(data[key], idArray)
                     ),
                 }),
             }),

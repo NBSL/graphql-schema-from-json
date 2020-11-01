@@ -76,14 +76,15 @@ import isRelationshipField from './isRelationshipField';
  * //     removeUser(id: ID!): Boolean
  * // }
  */
-export default data => {
+export default (data, idArray = []) => {
+    if (typeof idArray === 'string') idArray = idArray.split(',')
     const types = getTypesFromData(data);
     const typesByName = types.reduce((types, type) => {
         types[type.name] = type;
         return types;
     }, {});
 
-    const filterTypesByName = getFilterTypesFromData(data);
+    const filterTypesByName = getFilterTypesFromData(data, idArray);
 
     const listMetadataType = new GraphQLObjectType({
         name: 'ListMetadata',
@@ -133,7 +134,7 @@ export default data => {
                 f[fieldName] = Object.assign({}, typeFields[fieldName], {
                     type:
                         fieldName !== 'id' &&
-                        typeFields[fieldName].type instanceof GraphQLNonNull
+                            typeFields[fieldName].type instanceof GraphQLNonNull
                             ? typeFields[fieldName].type.ofType
                             : typeFields[fieldName].type,
                 });

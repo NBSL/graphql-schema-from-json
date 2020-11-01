@@ -125,7 +125,7 @@ test('creates one field per reverse relationship', () => {
     expect(Object.keys(typeMap['User'].getFields())).toContain('Posts');
 });
 
-test('creates three query fields per data type', () => {
+test('creates seven query fields per data type', () => {
     const queries = getSchemaFromData(data)
         .getQueryType()
         .getFields();
@@ -180,7 +180,7 @@ test('creates three query fields per data type', () => {
     expect(queries['_allPostsMeta'].type.toString()).toEqual('ListMetadata');
 });
 
-test('creates three mutation fields per data type', () => {
+test('creates seven mutation fields per data type', () => {
     const mutations = getSchemaFromData(data)
         .getMutationType()
         .getFields();

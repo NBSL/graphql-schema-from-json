@@ -54,11 +54,11 @@ import { getTypeFromKey } from './nameConverter';
  * //     }),
  * // ]
  */
-export default data =>
+export default (data, idArr = []) =>
     Object.keys(data)
         .map(typeName => ({
             name: camelize(singularize(typeName)),
-            fields: getFieldsFromEntities(data[typeName]),
+            fields: getFieldsFromEntities(data[typeName], idArr),
         }))
         .map(typeObject => new GraphQLObjectType(typeObject));
 

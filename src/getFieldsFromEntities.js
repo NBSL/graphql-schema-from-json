@@ -26,13 +26,14 @@ import getValuesFromEntities from './getValuesFromEntities';
  * //    user_id: { type: new GraphQLNonNull(GraphQLString) },
  * // };
  */
-export default (entities, checkRequired = true) => {
+export default (entities, idArray, checkRequired = true) => {
     const fieldValues = getValuesFromEntities(entities);
     const nbValues = entities.length;
     return Object.keys(fieldValues).reduce((fields, fieldName) => {
         fields[fieldName] = {
             type: getTypeFromValues(
                 fieldName,
+                idArray,
                 fieldValues[fieldName],
                 checkRequired
                     ? fieldValues[fieldName].length === nbValues
