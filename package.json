@@ -1,8 +1,8 @@
 {
   "name": "graphql-schema-from-json",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "lib/index",
-  "types": "types/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": "git@github.com:nbsl/graphql-schema-from-json.git",
   "authors": [
     "François Zaninotto",
@@ -54,10 +54,13 @@
     "rollup": "^2.33.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-dts": "^1.4.13",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.0.5"
   },
   "dependencies": {
     "bl": "^4.0.3",
@@ -65,6 +68,7 @@
     "graphql": "^15.4.0",
     "graphql-type-json": "^0.3.2",
     "inflection": "^1.12.0",
+    "remove": "^0.1.5",
     "semver": "^7.3.2"
   }
 }
