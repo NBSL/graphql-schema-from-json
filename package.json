@@ -1,8 +1,9 @@
 {
   "name": "graphql-schema-from-json",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "lib/index",
-  "repository": "git@github.com:marmelab/graphql-schema-from-json.git",
+  "types": "types/index.d.ts",
+  "repository": "git@github.com:nbsl/graphql-schema-from-json.git",
   "authors": [
     "François Zaninotto",
     "Gildas Garcia"
