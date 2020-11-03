@@ -6,7 +6,7 @@ declare function getRelatedKey(fieldName: string): string;
 declare function getReverseRelatedField(key: string): string;
 declare function getRelatedType(fieldName: string): string;
 
-declare function _default(data: Record<string, Record<string, uknown>[]>, idArray?: string | string[]): GraphQLSchema;
+declare function _default(data: Record<string, Record<string, unknown>[]>, idArray?: string | string[]): GraphQLSchema;
 
 declare const isRelationshipField: (fieldName: any) => any;
 
