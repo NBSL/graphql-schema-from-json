@@ -65,7 +65,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn build"
+      "pre-commit": "yarn test"
     }
   },
   "resolutions": {
