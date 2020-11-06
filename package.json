@@ -1,9 +1,14 @@
 {
-  "name": "graphql-schema-from-json",
+  "name": "@nbsl/graphql-schema-from-json",
   "version": "0.0.8",
-  "main": "lib/index",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "jsnext:main": "lib/index.es.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:nbsl/graphql-schema-from-json.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "authors": [
     "François Zaninotto",
     "Gildas Garcia"
@@ -32,43 +37,36 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-external-helpers": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/runtime-corejs3": "^7.12.1",
+    "@types/inflection": "^1.5.28",
     "@types/jest": "^26.0.15",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.1",
     "eslint": "^7.12.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "graphql": "^15.4.0",
     "husky": "^4.3.0",
     "jest": "^26.6.1",
     "lint-staged": "^10.5.1",
-    "nwmatcher": "^1.4.4",
     "prettier": "^2.1.2",
     "rollup": "^2.33.0",
-    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-dts": "^1.4.13",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.29.0",
+    "ts-jest": "^26.4.3",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   },
   "dependencies": {
-    "bl": "^4.0.3",
-    "diff": "^4.0.2",
-    "graphql": "^15.4.0",
     "graphql-type-json": "^0.3.2",
-    "inflection": "^1.12.0",
-    "remove": "^0.1.5",
-    "semver": "^7.3.2"
+    "inflection": "^1.12.0"
+  },
+  "husky": {
+    "pre-commit": "yarn test && yarn build && git add ."
+  },
+  "resolutions": {
+    "**/graphql": "^15"
   }
 }
