@@ -1,12 +1,24 @@
-import { GraphQLInputType, GraphQLType } from "graphql/type/definition";
+import { GraphQLType, GraphQLInputType } from "graphql";
 export interface JsonData {
-    [key: string]: Record<string, unknown>[];
+    [key: string]: JsonObj[];
+}
+export interface JsonObj {
+    [key: string]: string | JsonObj[] | number | null | Record<string, any>;
 }
 export interface FilterTypes {
-    [key: string]: GraphQLType | GraphQLInputType;
+    [key: string]: GraphQLInputType;
 }
-export interface Fields {
-    [key: string]: FieldArgs;
+export interface FieldsObj {
+    fields: FieldObj;
+}
+export interface FieldObj {
+    [key: string]: {
+        type: GraphQLType;
+    };
+}
+export interface GQLObjType {
+    name: string;
+    FieldsObj: any;
 }
 export interface FieldArgs {
     type: GraphQLType;

@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Added
 
 - Added Changelog
+- Added parameter for passing user defined primary keys. Format is users:UserID,posts:PostID etc
 
 ### Changed
 
@@ -18,4 +19,5 @@ All notable changes to this project will be documented in this file. This projec
 - Cleaned up dependencies
 - Rewrote rollup.config.js. Added externals to prevent graphql from being included in package.
 - Project restructuring
+- Rewrote module to use classes. Rewrote tests
 
